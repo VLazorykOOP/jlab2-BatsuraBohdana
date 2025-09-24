@@ -2,13 +2,11 @@ public class Point {
     private double x;
     private double y;
 
-    // Конструктор
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    // Геттери
     public double getX() {
         return x;
     }
@@ -17,37 +15,32 @@ public class Point {
         return y;
     }
 
-    // Переміщення по осі X
     public void moveX(double dx) {
         this.x += dx;
     }
 
-    // Переміщення по осі Y
+
     public void moveY(double dy) {
         this.y += dy;
     }
 
-    // Відстань до початку координат (0,0)
-    public double distanceToOrigin() {
         return Math.sqrt(x * x + y * y);
     }
 
-    // Відстань між двома точками
     public double distanceTo(Point other) {
         double dx = this.x - other.x;
         double dy = this.y - other.y;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
-    // Перетворення у полярні координати
-    // r – радіус, theta – кут у радіанах
+
     public double[] toPolar() {
         double r = Math.sqrt(x * x + y * y);
         double theta = Math.atan2(y, x); 
         return new double[]{r, theta};
     }
 
-    // Порівняння на співпадання
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -57,18 +50,18 @@ public class Point {
                Double.compare(this.y, other.y) == 0;
     }
 
-    // Порівняння на неспівпадання
+
     public boolean notEquals(Point other) {
         return !this.equals(other);
     }
 
-    // Для зручного виводу
+  
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
 
-    // Тест
+  
     public static void main(String[] args) {
         Point p1 = new Point(3, 4);
         Point p2 = new Point(6, 8);
